@@ -42,6 +42,24 @@ The `FeignController` class handles incoming HTTP requests and utilizes the `Web
 - Retrieve all users or a single user by ID.
 - Create and delete posts.
 
+## Application Configuration
+
+To enable Feign in the Spring Boot application, the `@EnableFeignClients` annotation must be added to the main application class. This annotation tells Spring Cloud to look for interfaces that declare they are Feign clients (using `@FeignClient`).
+
+```java
+@SpringBootApplication
+@EnableFeignClients
+public class SpringbootFeignClientApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootFeignClientApplication.class, args);
+    }
+
+}
+```
+
+This setup is crucial for ensuring that Spring Boot recognizes and registers your defined Feign clients so they can be autowired and used within your application services.
+
 ## Testing with Postman
 
 To test the application with Postman:
